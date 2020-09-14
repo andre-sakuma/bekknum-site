@@ -30,79 +30,24 @@
       </v-menu>
     </v-app-bar>
 
+    <img src="./assets/banner.svg" />
     <v-main class="main">
-      <v-img src="./assets/logo_alinhado-03.png" />
-      <div class="content">
-        <div class="about">
-          <div class="sobre">
-            <div class="rectangle" />
-            <p class="aboutUs">
-              sobre
-              <br />nós
-            </p>
-          </div>
-          <p
-            class="sectionTitle"
-          >Somos um projeto voluntário, compromissado com nossos valores, que visa tornar o mundo mais igual e democrático por meio da educação!</p>
-          <div class="imgAboutUs"></div>
-        </div>
-        <div class="about mt-10">
-          <div class="sobre">
-            <div class="rectangle" />
-            <p class="aboutUs">
-              como
-              <br />funciona?
-            </p>
-          </div>
-          <p
-            class="sectionTitle"
-          >oferecemos suporte para vestibulandes se prepararem para as provas, visando seu bem estar físico e mental, promovendo a troca de experiências entre os membros da equipe</p>
-          <div class="services"></div>
-        </div>
-        <div class="about mt-10">
-          <div class="sobre">
-            <div class="rectangle" />
-            <p class="aboutUs">
-              nossos
-              <br />valores
-            </p>
-          </div>
-          <div class="valoresCarousel">
-            <v-carousel cycle height="300" hide-delimiter-background show-arrows-on-hover>
-              <v-carousel-item v-for="(slide, i) in slides" :key="i">
-                <v-card color="#f9f2e5" elevation="0">
-                  <div fill-height>
-                    <v-card-actions class="valoresTitle justify-center">
-                      <h1>{{slide.title}}</h1>
-                    </v-card-actions>
-                    <v-card-title class="valores justify-center" primary-title>
-                      {{slide.description}}
-                    </v-card-title>
-                  </div>
-                </v-card>
-              </v-carousel-item>
-            </v-carousel>
-          </div>
-        </div>
+      <div class="mainContent">
+        <Main />
       </div>
     </v-main>
-    <v-footer
-      absolute
-      fixed
-      class="font-weight-medium"
-    >
-      <v-col
-        class="text-center"
-        cols="12"
-      >
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+    <Donate />
+    <v-footer absolute fixed class="font-weight-medium">
+      <v-col class="text-center" cols="12">
+        {{ new Date().getFullYear() }} —
+        <strong>Bekknum</strong>
       </v-col>
     </v-footer>
   </v-app>
 </template>
 
-<style scoped>
-.valoresCarousel{
+<style >
+.valoresCarousel {
   width: 60%;
   margin-left: 20px;
 }
@@ -119,22 +64,25 @@
   background: #f9f2e5;
 }
 .sectionTitle {
-  margin: auto 0;
   margin-left: 60px;
+  margin-top: 18px;
   font-size: 30px;
   width: 50%;
   color: #582973;
 }
-.valores{
+.valores {
   margin: 0 auto;
   color: #582973;
 }
-.valoresTitle{
+.valoresTitle {
   margin: 0 auto;
   color: #582973;
 }
 .main {
-  width: 100%;
+  background-color: #f9f2e5;
+}
+.mainContent {
+  width: 90%;
   margin: 0 auto;
   background: #f9f2e5;
 }
@@ -154,42 +102,19 @@
 }
 </style>
 <script>
+import Main from "./components/Main.vue";
+import Donate from "./components/Donate.vue";
+
 export default {
   name: "App",
 
-  components: {},
+  components: {
+    Main,
+    Donate,
+  },
 
   data: () => ({
     items: ["sobre nos", "doacoes", "nossos valores", "sevicos"],
-    colors: [
-      "indigo",
-      "warning",
-      "pink darken-2",
-      "red lighten-1",
-      "deep-purple accent-4",
-    ],
-    slides: [
-      {
-        title:"AMIZADE",
-        description:"formar relações humanas entre os membros do projeto e  fortalecer nossas conexões criando assim um laço de cumplicidade"
-      },
-      {
-        title:"PLURALIDADE/DIVERSIDADE",
-        description:"a sociedade é diversa e plural e sabendo disso valorizamos as singularidades humanas e assim a nossa capacidade de ser diferente"
-      },
-      {
-        title:"COMPROMISSO",
-        description:"temos o compromisso com a nossa missão e por isso a proatividade com os objetivos do projeto"
-      },
-      {
-        title:"INDIVIZUALIZADA",
-        description:"entendemos que cada aluno tem suas singularidades e por isso"
-      },
-      {
-        title:"PROMOVER MUDANÇAS",
-        description:"querermos transformar a vida do aluno, equipe impactando positivamente na vida deles e indiretamente a sociedade."
-      },
-    ],
   }),
 };
 </script>
