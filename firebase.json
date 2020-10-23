@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "site/dist",
+    "site": "bekknum",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
