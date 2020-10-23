@@ -55,7 +55,7 @@
                 color="primary"
                 text
                 block
-                @click.stop="$router.push('home')"
+                @click.stop="$router.push('/')"
               >
                 Página Inicial
               </v-btn>
@@ -97,6 +97,18 @@
                 @click.stop="$router.push('contact')"
               >
                 Contato
+              </v-btn>
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>
+              <v-btn
+                color="primary"
+                text
+                block
+                @click.stop="$router.push('donate')"
+              >
+                Doar
               </v-btn>
             </v-list-item-title>
           </v-list-item>
