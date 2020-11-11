@@ -11,7 +11,7 @@
         <h1>menu</h1>
       </v-btn>
       <v-spacer></v-spacer>
-      <div @click.stop="$router.push('/')">
+      <div style="cursor: pointer;" @click.stop="$router.push('/')">
         <img src="@/assets/bekknum.png" alt="Logo Bekknum" height="50" />
       </div>
       <v-spacer></v-spacer>
@@ -52,63 +52,78 @@
           <v-list-item>
             <v-list-item-title>
               <v-btn
+                class="text-lowercase"
                 color="primary"
                 text
                 block
                 @click.stop="$router.push('/')"
               >
-                Página Inicial
+                <h2>Página Inicial</h2>
               </v-btn>
             </v-list-item-title>
           </v-list-item>
-
           <v-list-item>
             <v-list-item-title>
               <v-btn
+                class="text-lowercase"
                 color="primary"
                 text
                 block
                 @click.stop="$router.push('about')"
               >
-                Sobre Nós
+                <h2>Sobre Nós</h2>
               </v-btn>
             </v-list-item-title>
           </v-list-item>
-
           <v-list-item>
             <v-list-item-title>
               <v-btn
+                class="text-lowercase"
                 color="primary"
                 text
                 block
                 @click.stop="$router.push('project')"
               >
-                Como Funciona?
+                <h2>Como Funciona?</h2>
               </v-btn>
             </v-list-item-title>
           </v-list-item>
-
           <v-list-item>
             <v-list-item-title>
               <v-btn
+                class="text-lowercase"
+                color="primary"
+                text
+                block
+                @click.stop="$router.push('subscribe')"
+              >
+                <h2>Quero participar!</h2>
+              </v-btn>
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>
+              <v-btn
+                class="text-lowercase"
                 color="primary"
                 text
                 block
                 @click.stop="$router.push('contact')"
               >
-                Contato
+                <h2>Contato</h2>
               </v-btn>
             </v-list-item-title>
           </v-list-item>
           <v-list-item>
             <v-list-item-title>
               <v-btn
+                class="text-lowercase"
                 color="primary"
                 text
                 block
                 @click.stop="$router.push('donate')"
               >
-                Doar
+                <h2>Doar</h2>
               </v-btn>
             </v-list-item-title>
           </v-list-item>
@@ -116,23 +131,41 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main class="main">
-      <router-view />
+    <v-main class="blight">
+      <v-img
+        v-if="$router.history.current.path == '/'"
+        src="@/assets/painel.svg"
+      ></v-img>
+      <div class="content">
+        <router-view />
+      </div>
     </v-main>
+    <v-footer class="blight" padless>
+      <!-- <Footer /> -->
+      <v-card flat width="100%" class="text-center">
+        <v-card-text>
+          {{ new Date().getFullYear() }} — <strong>Bekknum</strong>
+        </v-card-text>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
 
 <style scoped>
-.main {
-  background: #f9f2e5;
+.content {
+  margin: 0 auto;
+  width: 84%;
 }
 </style>
 
 <script>
+// import Footer from "@/components/Footer";
 export default {
   name: "App",
 
-  components: {},
+  components: {
+    // Footer
+  },
 
   data: () => ({
     drawer: false,

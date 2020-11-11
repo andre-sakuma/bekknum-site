@@ -5,6 +5,7 @@ import About from "../views/About.vue";
 import Project from "../views/Project.vue";
 import Contact from "../views/Contact.vue";
 import Donate from "../views/Donate.vue";
+import Subscribe from "../views/Subscribe.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/donate",
     name: "Donate",
     component: Donate
+  },
+  {
+    path: "/subscribe",
+    name: "Subscribe",
+    component: Subscribe
   }
 ];
 
